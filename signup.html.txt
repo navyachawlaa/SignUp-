@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signup | Aruba Networks</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Aruba Networks</h1>
+    <p class="subtitle">Create your account below</p>
+    <form id="signupForm" novalidate>
+      <input type="text" id="name" placeholder="John Doe" />
+      <div class="error" id="nameError"></div>
+
+      <input type="email" id="email" placeholder="johndoe@gmail.com" />
+      <div class="error" id="emailError"></div>
+
+      <input type="tel" id="phone" placeholder="1234567890" />
+      <div class="error" id="phoneError"></div>
+
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      document.getElementById("nameError").textContent = "";
+      document.getElementById("emailError").textContent = "";
+      document.getElementById("phoneError").textContent = "";
+
+      let valid = true;
+
+      if (!name) {
+        document.getElementById("nameError").textContent = "Please enter a valid name.";
+        valid = false;
+      }
+
+      const emailPattern = /^
